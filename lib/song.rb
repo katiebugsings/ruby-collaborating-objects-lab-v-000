@@ -13,7 +13,8 @@ def self.new_by_filename(filename)
   genre = filename.split(" - ")[2]
   song = self.new(name)
   song.artist = Artist.find_or_create_by_name(artist)
-  
+  @artist.add_song(song)
+  @artist.save
   song
   end
 end
